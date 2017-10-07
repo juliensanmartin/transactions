@@ -26,7 +26,7 @@ class TransactionsList extends React.Component {
 
     const transactionsList = transactions.map((transaction) =>
       <li key={transaction.transactionId}>
-        {transaction.description}
+        {transaction.transactionDate} - {transaction.description}
       </li>
     );
     // <div className={css.transactions_list}>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import TransactionsList from './components/transactions-list.component'
-import { fetchTransactions } from '../../../actions/actions'
-import { getTransactions } from '../../../actions/selectors'
+import { fetchTransactions } from '../../../actions/transactions.actions'
+import { getVisibleTransactions } from '../../../actions/selectors'
 import { connect } from 'react-redux'
 
 class TransactionsContainer extends Component {
@@ -28,7 +28,7 @@ TransactionsContainer.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    transactions: getTransactions(state)
+    transactions: getVisibleTransactions(state)
   }
 }
 

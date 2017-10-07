@@ -2,9 +2,10 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import entities from '../reducers/entities'
+import ui from '../reducers/ui'
 
 const appReducer = combineReducers({
-	entities
+	entities, ui
 })
 
 const enhancer = compose(
