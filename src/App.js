@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import store from './store/store'
-import TransactionsFetch from './components/transactions-fetch.component'
+import TransactionsTool from './components/transactions-tool.component'
 import logo from './transaction.svg'
 import './App.css'
 
@@ -14,7 +14,7 @@ class App extends Component {
           <h1 className="App-title">Transactions Manager</h1>
         </header>
         <Provider store={store}>
-          <TransactionsFetch />
+          <TransactionsTool />
         </Provider>
       </div>
     );

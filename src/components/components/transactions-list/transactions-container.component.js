@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import TransactionsList from './transactions-list.component'
-import { fetchTransactions } from '../actions/actions'
-import { getTransactions } from '../actions/selectors'
+import TransactionsList from './components/transactions-list.component'
+import { fetchTransactions } from '../../../actions/actions'
+import { getTransactions } from '../../../actions/selectors'
 import { connect } from 'react-redux'
 
-class TransactionsFetch extends Component {
+class TransactionsContainer extends Component {
   componentDidMount() {
     this.props.dispatch(fetchTransactions())
   }
@@ -21,7 +21,7 @@ class TransactionsFetch extends Component {
   }
 }
 
-TransactionsFetch.propTypes = {
+TransactionsContainer.propTypes = {
   transactions: PropTypes.array.isRequired,
   dispatch: PropTypes.func.isRequired
 }
@@ -42,4 +42,4 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionsFetch)
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionsContainer)
