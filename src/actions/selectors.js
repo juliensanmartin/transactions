@@ -31,8 +31,6 @@ const filterByDate = (ascending, transactions) => {
 const getVisibleTransactions = createSelector(
   [ getAccountFilter, getCategoriesFilter, getDateFilter, getTransactions ],
   (accountFilter, categoriesFilter, dateFilter, transactions) => {
-    let result = transactions
-
     return flow(
       filterByAccount.bind(this, accountFilter),
       filterByCategories.bind(this, categoriesFilter),

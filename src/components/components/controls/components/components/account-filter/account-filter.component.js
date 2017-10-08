@@ -6,18 +6,40 @@ import classnames from 'classnames'
 class AccountFilter extends React.Component {
   render () {
     const {
-      accounts
+      accounts,
+      accountFilter,
+      onSelectAccount
     } = this.props
 
+    let accountsSelectComponent = accounts.map(account =>
+      <option
+        key={account.accountId}
+        value={account.accountId}
+      >
+        {account.accountName}
+      </option>
+    )
+
+    accountsSelectComponent.unshift(
+      <option
+        key='none'
+        value=''
+      >
+        none
+      </option>
+    )
+
     return (
-      <div>
-        Account filter
-      </div>
+      <select onChange={evt=>onSelectAccount(evt.target.value)} value={accountFilter}>
+        {accountsSelectComponent}
+      </select>
   )}
 }
 
 AccountFilter.propTypes = {
-  accounts: PropTypes.array.isRequired
+  accounts: PropTypes.array.isRequired,
+  accountFilter: PropTypes.string.isRequired,
+  onSelectAccount: PropTypes.func.isRequired
 }
 
 export default AccountFilter

@@ -5,19 +5,19 @@ import classnames from 'classnames'
 
 class ResetFilter extends React.Component {
   render () {
-    // const {
-    //   categories
-    // } = this.props
+    const {
+      onReset
+    } = this.props
 
     return (
-      <div>
-        reset filter
-      </div>
+      <button onClick={onReset}>
+        Reset filters
+      </button>
   )}
 }
 
 ResetFilter.propTypes = {
-  //categories: PropTypes.array.isRequired
+  onReset: PropTypes.func.isRequired
 }
 
 export default ResetFilter

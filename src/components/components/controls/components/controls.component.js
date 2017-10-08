@@ -12,28 +12,49 @@ class Controls extends React.Component {
   render () {
     const {
       categories,
-      accounts
-    } = this.props
+      accounts,
+      dateFilter,
+      accountFilter,
+      categoriesFilter,
+      onDateSortChange,
+      onSelectCategory,
+      onSelectAccount,
+      onReset
+     } = this.props
 
     return (
       <div>
         <AccountFilter
           accounts={accounts}
+          onSelectAccount={onSelectAccount}
+          accountFilter={accountFilter}
         />
         <CategoriesFilter
           categories={categories}
+          onSelectCategory={onSelectCategory}
+          categoriesFilter={categoriesFilter}
         />
         <DateSortFilter
-
+          dateFilter={dateFilter}
+          onDateSortChange={onDateSortChange}
         />
-        <ResetFilter/>
+        <ResetFilter
+          onReset={onReset}
+        />
       </div>
   )}
 }
 
 Controls.propTypes = {
+  accounts: PropTypes.array.isRequired,
   categories: PropTypes.array.isRequired,
-  accounts: PropTypes.array.isRequired
+  dateFilter: PropTypes.bool.isRequired,
+  accountFilter: PropTypes.string.isRequired,
+  categoriesFilter: PropTypes.array.isRequired,
+  onDateSortChange: PropTypes.func.isRequired,
+  onSelectCategory: PropTypes.func.isRequired,
+  onSelectAccount: PropTypes.func.isRequired,
+  onReset: PropTypes.func.isRequired
 }
 
 export default Controls

@@ -5,19 +5,21 @@ import classnames from 'classnames'
 
 class DateSortFilter extends React.Component {
   render () {
-    // const {
-    //   categories
-    // } = this.props
+    const {
+      dateFilter,
+      onDateSortChange
+    } = this.props
 
     return (
-      <div>
-        Date sort filter
-      </div>
+      <button onClick={onDateSortChange}>
+        Sort by date {dateFilter? 'asc' : 'desc'}
+      </button>
   )}
 }
 
 DateSortFilter.propTypes = {
-  //categories: PropTypes.array.isRequired
+  dateFilter: PropTypes.bool.isRequired,
+  onDateSortChange: PropTypes.func.isRequired
 }
 
 export default DateSortFilter

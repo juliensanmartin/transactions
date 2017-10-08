@@ -5,12 +5,16 @@ import {
   RESET_FILTER
 } from '../actions/types'
 import { combineReducers } from 'redux'
-import { union } from 'lodash'
+import { without, findIndex } from 'lodash'
 
 const categoriesFilter = (state = [], action) => {
   switch (action.type) {
     case CATEGORIES_FILTER_UPDATED:
-      return union(state, [action.categoryId])
+      if (findIndex(state, categoryId => categoryId === action.categoryId) === -1){
+        return [...state, action.categoryId]
+      } else {
+        return without(state, action.categoryId)
+      }
     case RESET_FILTER:
       return []
     default:
@@ -18,12 +22,12 @@ const categoriesFilter = (state = [], action) => {
   }
 }
 
-const accountFilter = (state = null, action) => {
+const accountFilter = (state = '', action) => {
   switch (action.type) {
     case ACCOUNT_FILTER_UPDATED:
       return action.accountId
     case RESET_FILTER:
-      return {}
+      return ''
     default:
       return state
   }
