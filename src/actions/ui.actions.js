@@ -2,7 +2,8 @@ import {
   ACCOUNT_FILTER_UPDATED,
   CATEGORIES_FILTER_UPDATED,
   DATE_FILTER_UPDATED,
-  RESET_FILTER
+  RESET_FILTER,
+  DATE_RANGE_FILTER_UPDATED
 } from './types'
 
 export const updateAccountFilter = accountId => dispatch => {
@@ -22,6 +23,13 @@ export const updateCategoriesFilter = categoryId => dispatch => {
 export const updateDateFilter = () => dispatch => {
   dispatch({
     type: DATE_FILTER_UPDATED
+  })
+}
+
+export const updateDateRangeFilter = transactionsDateRange => dispatch => {
+  dispatch({
+    type: DATE_RANGE_FILTER_UPDATED,
+    transactionsDateRange
   })
 }
 

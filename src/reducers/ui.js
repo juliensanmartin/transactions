@@ -2,7 +2,8 @@ import {
   ACCOUNT_FILTER_UPDATED,
   CATEGORIES_FILTER_UPDATED,
   DATE_FILTER_UPDATED,
-  RESET_FILTER
+  RESET_FILTER,
+  DATE_RANGE_FILTER_UPDATED
 } from '../actions/types'
 import { combineReducers } from 'redux'
 import { without, findIndex } from 'lodash'
@@ -44,6 +45,17 @@ const dateFilter = (state = true, action) => {
   }
 }
 
+const dateRangeFilter = (state = {}, action) => {
+  switch (action.type) {
+    case DATE_RANGE_FILTER_UPDATED:
+      return { ...action.transactionsDateRange }
+    case RESET_FILTER:
+      return {}
+    default:
+      return state
+  }
+}
+
 export default combineReducers({
-	categoriesFilter, accountFilter, dateFilter
+	categoriesFilter, accountFilter, dateFilter, dateRangeFilter
 })
