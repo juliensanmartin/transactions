@@ -1,13 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
 import AccountFilter from './components/account-filter/account-filter.component'
 import CategoriesFilter from './components/categories-filter/categories-filter.component'
 import DateSortFilter from './components/date-sort-filter/date-sort-filter.component'
 import ResetFilter from './components/reset-filter/reset-filter.component'
 import DateRangeFilter from './components/date-range-filter/date-range-filter.component'
-
-//import css from './transactions.css'
+import css from './controls.css'
 
 class Controls extends React.Component {
   render () {
@@ -27,29 +25,34 @@ class Controls extends React.Component {
      } = this.props
 
     return (
-      <div>
-        <AccountFilter
-          accounts={accounts}
-          onSelectAccount={onSelectAccount}
-          accountFilter={accountFilter}
-        />
-        <CategoriesFilter
-          categories={categories}
-          onSelectCategory={onSelectCategory}
-          categoriesFilter={categoriesFilter}
-        />
-        <DateSortFilter
-          dateFilter={dateFilter}
-          onDateSortChange={onDateSortChange}
-        />
-        <DateRangeFilter
-          transactionsDateRange={transactionsDateRange}
-          onDateRangeChange={onDateRangeChange}
-          dateRangeFilter={dateRangeFilter}
-        />
-        <ResetFilter
-          onReset={onReset}
-        />
+      <div className='controls'>
+        <div className='controls__title'>Filters</div>
+        <div className='controls--simple'>
+          <AccountFilter
+            accounts={accounts}
+            onSelectAccount={onSelectAccount}
+            accountFilter={accountFilter}
+          />
+          <DateSortFilter
+            dateFilter={dateFilter}
+            onDateSortChange={onDateSortChange}
+          />
+          <ResetFilter
+            onReset={onReset}
+          />
+        </div>
+        <div className='controls--larger'>
+          <CategoriesFilter
+            categories={categories}
+            onSelectCategory={onSelectCategory}
+            categoriesFilter={categoriesFilter}
+          />
+          <DateRangeFilter
+            transactionsDateRange={transactionsDateRange}
+            onDateRangeChange={onDateRangeChange}
+            dateRangeFilter={dateRangeFilter}
+          />
+        </div>
       </div>
   )}
 }

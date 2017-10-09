@@ -1,0 +1,32 @@
+.controls {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  margin-bottom: 50px;
+}
+
+.controls__title {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid lightgrey;
+  font-size: 24px;
+  padding: 10px;
+  margin: 0px 10px;
+}
+
+.controls--simple {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid lightgrey;
+  margin: 0px 10px;
+  padding: 10px;
+}
+
+.controls--larger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgrey;
+  margin: 0px 10px;
+  padding: 10px;
+}

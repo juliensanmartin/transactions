@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
 import { indexOf } from 'lodash'
+import css from './categories.css'
 
 class CategoriesFilter extends React.Component {
   render () {
@@ -12,7 +12,7 @@ class CategoriesFilter extends React.Component {
     } = this.props
 
     const categoriesSelectComponent = categories.map(category =>
-      <div key={category}>
+      <div key={category} className='categories__category'>
         <input
           type='checkbox'
           id={category}
@@ -25,8 +25,11 @@ class CategoriesFilter extends React.Component {
     )
 
     return (
-      <div>
-        {categoriesSelectComponent}
+      <div className='categories-tool'>
+        <div className='categories__title'>Categories</div>
+        <div className='categories-container'>
+          {categoriesSelectComponent}
+        </div>
       </div>
   )}
 }

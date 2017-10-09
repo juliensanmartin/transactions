@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
-//import css from './transactions.css'
+import css from './reset.css'
 
 class ResetFilter extends React.Component {
   render () {
@@ -10,9 +9,11 @@ class ResetFilter extends React.Component {
     } = this.props
 
     return (
-      <button onClick={onReset}>
-        Reset filters
-      </button>
+      <div className='reset-container'>
+        <button className='reset__button' onClick={onReset}>
+          Reset filters
+        </button>
+      </div>
   )}
 }
 

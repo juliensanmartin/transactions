@@ -1,0 +1,13 @@
+.accounts-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: 1px solid lightgrey;
+}
+
+.accounts__title {
+  margin-right: 10px;
+  font-size: 24px;
+}

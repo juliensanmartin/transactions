@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
-//import css from './transactions.css'
+import css from './accounts.css'
 
 class AccountFilter extends React.Component {
   render () {
@@ -30,9 +29,12 @@ class AccountFilter extends React.Component {
     )
 
     return (
-      <select onChange={evt=>onSelectAccount(evt.target.value)} value={accountFilter}>
-        {accountsSelectComponent}
-      </select>
+      <div className='accounts-container'>
+        <div className='accounts__title'>Accounts</div>
+        <select onChange={evt=>onSelectAccount(evt.target.value)} value={accountFilter}>
+          {accountsSelectComponent}
+        </select>
+      </div>
   )}
 }
 

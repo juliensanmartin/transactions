@@ -1,39 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
-//import css from './transactions.css'
+import css from './transactions-list.css'
 
 class TransactionsList extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      isExpanded: false
-    }
-
-    this.toggleButton = this.toggleButton.bind(this)
-  }
-
-  toggleButton () {
-    this.setState({ isExpanded: !this.state.isExpanded })
-  }
-
   render () {
     const {
       transactions
     } = this.props
 
-    const { isExpanded } = this.state
-
     const transactionsList = transactions.map((transaction) =>
-      <li key={transaction.transactionId}>
-        {transaction.transactionDate} - {transaction.description}
-      </li>
-    );
-    // <div className={css.transactions_list}>
+      <div className='transactions__item' key={transaction.transactionId}>
+        <div className='transactions__date'>{transaction.transactionDate}</div>
+        <div className='transactions__description'>{transaction.description}</div>
+        <div className='transactions__amount'>${transaction.amount}</div>
+        <div className='transactions__category'>{transaction.category}</div>
+      </div>
+    )
+
     return (
-      <ul>
+      <div className='transactions-list-container'>
+        <div className='transactions__title'>List of transactions</div>
         {transactionsList}
-      </ul>
+      </div>
   )}
 }
 

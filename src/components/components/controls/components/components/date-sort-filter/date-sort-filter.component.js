@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
-//import css from './transactions.css'
+import css from './date-sort.css'
 
 class DateSortFilter extends React.Component {
   render () {
@@ -11,9 +10,11 @@ class DateSortFilter extends React.Component {
     } = this.props
 
     return (
-      <button onClick={onDateSortChange}>
-        Sort by date {dateFilter? 'asc' : 'desc'}
-      </button>
+      <div className='date-sort-container'>
+        <button className='date-sort__button' onClick={onDateSortChange}>
+          Sort by date {dateFilter? 'desc' : 'asc'}
+        </button>
+      </div>
   )}
 }
 

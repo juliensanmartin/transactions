@@ -1,0 +1,11 @@
+.date-range-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.date-range__title {
+  margin-bottom: 10px;
+  font-size: 24px;
+}

@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
 import { DateRange } from 'react-date-range'
-//import css from './transactions.css'
+import css from './date-range.css'
 
 class DateRangeFilter extends React.Component {
   handleDateChange (range) {
@@ -22,7 +21,8 @@ class DateRangeFilter extends React.Component {
     const endDate = dateRangeFilter.end || transactionsDateRange.end
 
     return (
-      <div>
+      <div className='date-range-container'>
+        <div className='date-range__title'>Select a date range</div>
         {dateRangeFilter &&
           <DateRange
     				onChange={this.handleDateChange.bind(this)}

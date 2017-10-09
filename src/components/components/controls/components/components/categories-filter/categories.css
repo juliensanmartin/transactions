@@ -1,0 +1,25 @@
+.categories-tool {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-right: 20px;
+  border-right: 1px solid lightgrey;
+}
+
+.categories-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.categories__title {
+  display: flex;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.categories__category {
+  display: flex;
+  width: 300px;
+}

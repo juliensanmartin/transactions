@@ -1,0 +1,29 @@
+.total-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 50px;
+}
+
+.total__title {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid lightgrey;
+  font-size: 24px;
+  padding: 10px;
+  margin: 0px 10px;
+}
+
+.total__item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid lightgrey;
+  margin: 0px 10px;
+  padding: 10px;
+}
+
+.total__amount {
+  font-size: 18px;
+  color: red;
+}
