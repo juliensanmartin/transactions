@@ -1,4 +1,3 @@
-import {assert} from 'chai'
 import deepFreeze from 'deep-freeze'
 
 import {
@@ -38,13 +37,55 @@ const payloadTransactions = [
   }
 ]
 
+const payloadCategories = [
+  "ACCOMMODATIONS",
+  "BANK_FEE",
+  "BEAUTY",
+  "CHARITY",
+  "CHILDREN",
+  "CLOTHING",
+  "CONVENIENCE_STORE",
+  "DEPARTMENT_STORE",
+  "EDUCATION",
+  "ELECTRONICS",
+  "ENTERTAINMENT",
+  "FINANCIAL_PRODUCT",
+  "FITNESS",
+  "GIFTS",
+  "GROCERY",
+  "HEALTH",
+  "HOME",
+  "INCOME",
+  "PET",
+  "PHARMACY",
+  "RESTAURANT",
+  "TAXES_GOVERNMENT_BENEFITS",
+  "THRIFT_SHOP",
+  "TRANSFER",
+  "TRANSPORTATION",
+  "UTILITIES_BILLS"
+]
+
 const reducerTest = (reducer, initial, action, desired) => {
   const after = reducer(deepFreeze(initial), deepFreeze(action))
-  assert.deepEqual(after, desired)
+  expect(after).toEqual(desired)
 }
 
+describe('categories', () => {
+  it('CATEGORIES_POPULATED populate categories', () => {
+    const initial = []
+    const action = {
+      type: CATEGORIES_POPULATED,
+      payload: {
+        categories: payloadCategories
+      }
+    }
+    reducerTest(categories, initial, action, action.payload.categories)
+  })
+})
+
 describe('transactions', () => {
-  it('TRANSACTIONS_POPULATED populate transactions', () => {
+  it('TRANSACTIONS_POPULATED populate categories', () => {
     const initial = []
     const action = {
       type: TRANSACTIONS_POPULATED,
