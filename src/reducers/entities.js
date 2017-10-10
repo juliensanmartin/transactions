@@ -6,7 +6,7 @@ import {
 } from '../actions/types'
 import { combineReducers } from 'redux'
 
-const transactions = (state = [], action) => {
+export const transactions = (state = [], action) => {
   switch (action.type) {
     case TRANSACTIONS_POPULATED:
       return [ ...action.transactions ]
@@ -15,7 +15,7 @@ const transactions = (state = [], action) => {
   }
 }
 
-const transactionsDateRange = (state = {}, action) => {
+export const transactionsDateRange = (state = {}, action) => {
   switch (action.type) {
     case TRANSACTION_INFO_POPULATED:
       return { ...action.transactionsDateRange }
@@ -24,7 +24,7 @@ const transactionsDateRange = (state = {}, action) => {
   }
 }
 
-const categories = (state = [], action) => {
+export const categories = (state = [], action) => {
   switch (action.type) {
     case CATEGORIES_POPULATED:
       return [ ...action.categories ]
@@ -33,7 +33,7 @@ const categories = (state = [], action) => {
   }
 }
 
-const accounts = (state = [], action) => {
+export const accounts = (state = [], action) => {
   switch (action.type) {
     case ACCOUNTS_POPULATED:
       return [ ...action.accounts ]
