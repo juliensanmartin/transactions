@@ -1,18 +1,18 @@
 import React from 'react'
 import { configure, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import ResetFilter from './reset-filter.component'
+import Button from './button.component'
 
 configure({ adapter: new Adapter() })
 
-describe('<ResetFilter />', function() {
+describe('<Button />', function() {
   it('should execute callback on button click', function() {
-    const reset = jest.fn()
+    const clickAction = jest.fn()
     const wrapper = shallow(
-      <ResetFilter onReset={reset} />
+      <Button onButtonClick={clickAction} label='test'/>
     )
 
     wrapper.find('button').at(0).simulate('click')
-    expect(reset.mock.calls.length).toBe(1)
+    expect(clickAction.mock.calls.length).toBe(1)
   })
 })

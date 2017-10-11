@@ -2,9 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import AccountFilter from './components/account-filter/account-filter.component'
 import CategoriesFilter from './components/categories-filter/categories-filter.component'
-import DateSortFilter from './components/date-sort-filter/date-sort-filter.component'
-import ResetFilter from './components/reset-filter/reset-filter.component'
 import DateRangeFilter from './components/date-range-filter/date-range-filter.component'
+import Button from '../../../common/button/button.component'
 import css from './controls.css'
 
 class Controls extends React.Component {
@@ -24,6 +23,9 @@ class Controls extends React.Component {
       onReset
      } = this.props
 
+     let dateSortFilterLabel = 'Sort by date asc'
+     if (dateFilter) dateSortFilterLabel = 'Sort by date desc'
+
     return (
       <div className='controls'>
         <div className='controls__title'>Filters</div>
@@ -33,12 +35,13 @@ class Controls extends React.Component {
             onSelectAccount={onSelectAccount}
             accountFilter={accountFilter}
           />
-          <DateSortFilter
-            dateFilter={dateFilter}
-            onDateSortChange={onDateSortChange}
+          <Button
+            label={dateSortFilterLabel}
+            onButtonClick={onDateSortChange}
           />
-          <ResetFilter
-            onReset={onReset}
+          <Button
+            label='Reset Filter'
+            onButtonClick={onReset}
           />
         </div>
         <div className='controls--larger'>

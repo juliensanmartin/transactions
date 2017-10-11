@@ -1,11 +1,12 @@
-.reset-container {
+.button-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  margin-right: 10px;
 }
 
-.reset__button {
+.button {
   background-color: rgb(52, 73, 94);
   border: none;
   color: white;
