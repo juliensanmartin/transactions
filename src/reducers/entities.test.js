@@ -66,6 +66,32 @@ const payloadCategories = [
   "UTILITIES_BILLS"
 ]
 
+const accountsPayload = [
+  {
+    accountId:"4163ef9a-4181-4fdd-aa24-76fd2097c30c",
+    institutionName:"Worldwide Savings Bank",
+    accountName:"HIGH INTEREST TFSA SAVINGS ACCOUNT",
+    transitNumber:"54685",
+    accountNumber:"123456781",
+    balance:67,
+    balanceUpdated:"2017-02-22"
+  },
+  {
+    accountId:"6408eb5b-e410-4b35-a549-f96d24c2df2a",
+    institutionName:"Worldwide Savings Bank",
+    accountName:"COMPANION SAVINGS ACCOUNT",
+    transitNumber:"54685",
+    accountNumber:"123456780",
+    balance:14.1,
+    balanceUpdated:"2017-02-22"
+  }
+]
+
+const transactionsDateRangePayload = {
+  end: "2016-03-18",
+  start: "2015-12-21"
+}
+
 const reducerTest = (reducer, initial, action, desired) => {
   const after = reducer(deepFreeze(initial), deepFreeze(action))
   expect(after).toEqual(desired)
@@ -76,11 +102,9 @@ describe('categories', () => {
     const initial = []
     const action = {
       type: CATEGORIES_POPULATED,
-      payload: {
-        categories: payloadCategories
-      }
+      categories: payloadCategories
     }
-    reducerTest(categories, initial, action, action.payload.categories)
+    reducerTest(categories, initial, action, action.categories)
   })
 })
 
@@ -89,10 +113,30 @@ describe('transactions', () => {
     const initial = []
     const action = {
       type: TRANSACTIONS_POPULATED,
-      payload: {
-        transactions: payloadTransactions
-      }
+      transactions: payloadTransactions
     }
-    reducerTest(transactions, initial, action, action.payload.transactions)
+    reducerTest(transactions, initial, action, action.transactions)
+  })
+})
+
+describe('accounts', () => {
+  it('ACCOUNTS_POPULATED populate accounts', () => {
+    const initial = []
+    const action = {
+      type: ACCOUNTS_POPULATED,
+      accounts: accountsPayload
+    }
+    reducerTest(accounts, initial, action, action.accounts)
+  })
+})
+
+describe('transactionsDateRange', () => {
+  it('TRANSACTION_INFO_POPULATED populate accounts', () => {
+    const initial = []
+    const action = {
+      type: TRANSACTION_INFO_POPULATED,
+      transactionsDateRange: transactionsDateRangePayload
+    }
+    reducerTest(transactionsDateRange, initial, action, action.transactionsDateRange)
   })
 })
